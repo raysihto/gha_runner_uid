@@ -34,7 +34,12 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          id
+          exec  >& 2 && set -x
           uname -a
+          id
           getent passwd
           getent group
+          id runner
+          id runneradmin
+          getent passwd | grep 'runner\|docker'
+          getent group | grep 'runner\|docker'
